@@ -1,0 +1,61 @@
+<!-- Special version of Bootstrap that only affects content wrapped in .bootstrap-iso -->
+<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />
+<!-- Inline CSS based on choices in "Settings" tab -->
+<style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
+
+<!-- HTML Form (wrapped in a .bootstrap-iso div) -->
+
+<% var readOnly = action == 'show' ? 'disabled' : '' %>
+
+<div class="bootstrap-iso">
+ <div class="container-fluid">
+  <div class="row">
+   <div class="col-md-6 col-sm-6 col-xs-12">
+    <form method="post" action="<%= action %>">
+      <div class="form-group ">
+       <input class="form-control" id="id" name="id" type="hidden" value="<%= item.id %>" <%= readOnly %> />
+      </div>
+     <div class="form-group ">
+      <label class="control-label requiredField" for="name">
+       名称
+       <span class="asteriskField">
+        *
+       </span>
+      </label>
+      <input class="form-control" id="name" name="name" type="text" value="<%= item.name %>" <%= readOnly %> />
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="SuccessMessage">
+       成功時のメッセージ
+      </label>
+      <input class="form-control" id="successMessage" name="successMessage" type="text" value="<%= item.successMessage %>" <%= readOnly %>/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="errorMessage">
+       エラー時のメッセージ
+      </label>
+      <input class="form-control" id="errorMessage" name="errorMessage" type="text" value="<%= item.errorMessage %>" <%= readOnly %>/>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="func">
+       関数
+      </label>
+      <textarea class="form-control" cols="40" id="func" name="func" rows="10" <%= readOnly %>> <%= item.func %> </textarea>
+      <span class="help-block" id="hint_func">
+       関数の中身を書いてください。
+必ず、エラーのときtrueを返し、成功のときfalseを返してください。
+引数として利用可能なものは以下の通りです。
+      </span>
+     </div>
+     <div class="form-group">
+      <div>
+       <button class="btn btn-primary " type="submit">
+        Submit
+       </button>
+      </div>
+     </div>
+    </form>
+   </div>
+  </div>
+ </div>
+</div>
