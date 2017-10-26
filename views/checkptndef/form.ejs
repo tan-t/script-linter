@@ -10,7 +10,7 @@
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
-   <div class="col-md-6 col-sm-6 col-xs-12">
+   <div class="col-md-8 col-sm-8 col-xs-12">
     <form method="post" action="<%= action %>">
       <div class="form-group ">
        <input class="form-control" id="id" name="id" type="hidden" value="<%= item.id %>" <%= readOnly %> />
@@ -40,12 +40,26 @@
       <label class="control-label " for="func">
        関数
       </label>
-      <textarea class="form-control" cols="40" id="func" name="func" rows="10" <%= readOnly %>> <%= item.func %> </textarea>
+      <textarea class="form-control" cols="40" id="func" name="func" rows="10" <%= readOnly %>><%= item.func %></textarea>
       <span class="help-block" id="hint_func">
-       関数の中身を書いてください。
+       関数の中身を書いてください。（関数の宣言部分を書く必要はありません。）<br/>
 必ず、エラーのときtrueを返し、成功のときfalseを返してください。
 引数として利用可能なものは以下の通りです。
       </span>
+     </div>
+     <div class="form-group ">
+      <label class="control-label " for="test">
+       テスト用のSQL
+      </label>
+      <textarea class="form-control" cols="40" id="test" name="test" rows="10" <%= readOnly %>></textarea>
+        <button class="btn" id="test-button" type="button">test</button>
+        <span class="help-block" id="hint_test">
+          ここでチェックパターンの追加をしているということは、
+          幸いにも、実際にそのチェックに引っかかるいい例があなたの手元にあるということです。<br/>
+          まず、そのサンプルでテストを行い、結果がレッドになることを確認しましょう。<br/>
+          その後、そのサンプルを好ましい状態に修正したときに、結果がグリーンになることを確認しましょう。
+        </span>
+      <h4 id="test-validation"></h4>
      </div>
      <div class="form-group">
       <div>
