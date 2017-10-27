@@ -58,7 +58,7 @@ module.exports.connections = {
   ***************************************************************************/
   localMongoDb: {
      adapter: 'sails-mongo',
-     host: 'tan-t.internal.worksap.com', // defaults to `localhost` if omitted
+     host: 'localhost', // defaults to `localhost` if omitted
      database: 'script' // or omit if not relevant
    },
 
