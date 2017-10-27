@@ -35,11 +35,20 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
-  'get /checkptndef': { view: 'checkptndef/form' },
+  '/arguments':{
+    view:'arguments'
+  },
+  '/client/get':{
+    view:'client/get'
+  },
+  '/client/recv-check.zip':'ClientController.download',
+  'get /checkptndef/': 'CheckptndefController.index',
   'get /checkptndef/new': 'CheckptndefController.new',
   'post /checkptndef/create': 'CheckptndefController.create',
   'get /checkptndef/:id': 'CheckptndefController.show',
-
+  'get /checkptndef/:id/edit': 'CheckptndefController.edit',
+  'post /checkptndef/:id/update': 'CheckptndefController.update',
+  'get /checkptndef/:id/destroy': 'CheckptndefController.destroy',
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *

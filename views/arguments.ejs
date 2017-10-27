@@ -1,0 +1,17 @@
+<h1 id="list-of-arguments">list of arguments</h1>
+<h2 id="function-outline">function outline</h2>
+<pre><code>function (sql /*,oracle */) {
+  // ... your function here
+}
+</code></pre><h2 id="sql">sql</h2>
+<p>represents the given sql file itself.</p>
+<h3 id="sql-sqltext-string-">sql.sqlText (string)</h3>
+<p>SQL本文です。</p>
+<h3 id="sql-filename-string-">sql.fileName (string)</h3>
+<p>SQLファイルのフルパスです。（たぶん）</p>
+<h2 id="oracle">oracle</h2>
+<p>represents the oracle environment information.<br>will be available in ver1.0 or above</p>
+<h3 id="oracle-usertabcolumns-object-">oracle.userTabColumns (object)</h3>
+<p>テーブル名:[{name:カラム名,type:型}]のオブジェクトを返します。</p>
+<h3 id="oracle-userconscolumns-object-">oracle.userConsColumns (object)</h3>
+<p>テーブル名:[{name:制約名,type:制約タイプ,columns:[{name:カラム名,position:順序}]}] のオブジェクトを返します。</p>

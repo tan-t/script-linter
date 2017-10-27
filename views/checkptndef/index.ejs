@@ -1,0 +1,32 @@
+<table class="table table-responsive">
+	<thead>
+		<tr>
+      <% for (var col of cols) { %>
+        <th><%= col.name %></th>
+        <% } %>
+		</tr>
+	</thead>
+	<tbody>
+    <% for (var item of items) { %>
+      <tr>
+      <% for (var col of cols) {%>
+        <td>
+          <% if(col.id == 'id') {%>
+            <a href="<%= item.id %>">
+          <% } %>
+          <%= item[col.id] %>
+          <% if(col.id == 'id') {%>
+            </a>
+          <% } %>
+        </td>
+       <% } %>
+      </tr>
+    <% } %>
+	</tbody>
+</table>
+
+<div class="btn-toolbar" role="toolbar">
+ <div class="btn-group" role="group" aria-label="First group">
+    <a class="btn btn-primary" type="button" href="new">new</a>
+ </div>
+</div>

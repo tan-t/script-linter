@@ -1,1 +1,6 @@
 <%- partial('./form.ejs', {item:item,mode:'show',action:'show'}) %>
+<div class="form-group">
+ <div>
+  <a class="btn btn-danger" type="submit" href="<%= item.id %>/destroy">Delete</a>
+ </div>
+</div>

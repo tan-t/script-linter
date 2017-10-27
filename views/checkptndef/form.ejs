@@ -4,14 +4,21 @@
 <style>.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}</style>
 
 <!-- HTML Form (wrapped in a .bootstrap-iso div) -->
-
 <% var readOnly = action == 'show' ? 'disabled' : '' %>
 
 <div class="bootstrap-iso">
  <div class="container-fluid">
   <div class="row">
    <div class="col-md-8 col-sm-8 col-xs-12">
-    <form method="post" action="<%= action %>">
+     <div class="btn-toolbar" role="toolbar">
+      <div class="btn-group" role="group" aria-label="First group">
+       <a class="btn btn-default" type="button" href="/checkptndef/">Back</a>
+       <% if(!!readOnly) { %>
+         <a class="btn btn-primary" type="button" href="<%=item.id%>/edit">edit</a>
+       <% } %>
+      </div>
+     </div>
+    <form method="post" action="<%= action %>" <%= readOnly %>>
       <div class="form-group ">
        <input class="form-control" id="id" name="id" type="hidden" value="<%= item.id %>" <%= readOnly %> />
       </div>
@@ -40,19 +47,20 @@
       <label class="control-label " for="func">
        関数
       </label>
-      <textarea class="form-control" cols="40" id="func" name="func" rows="10" <%= readOnly %>><%= item.func %></textarea>
-      <span class="help-block" id="hint_func">
+      <textarea class="form-control" cols="40" id="func" name="func" rows="20" <%= readOnly %>><%= item.func %></textarea>
+      <span class="help-block edit-only" id="hint_func">
        関数の中身を書いてください。（関数の宣言部分を書く必要はありません。）<br/>
 必ず、エラーのときtrueを返し、成功のときfalseを返してください。
 引数として利用可能なものは以下の通りです。
+  <a class="link" href="/arguments" target="_blank">利用可能な引数の一覧</a>
       </span>
      </div>
-     <div class="form-group ">
+     <div class="form-group edit-only">
       <label class="control-label " for="test">
        テスト用のSQL
       </label>
       <textarea class="form-control" cols="40" id="test" name="test" rows="10" <%= readOnly %>></textarea>
-        <button class="btn" id="test-button" type="button">test</button>
+        <a class="btn" id="test-button" type="button">test</a>
         <span class="help-block" id="hint_test">
           ここでチェックパターンの追加をしているということは、
           幸いにも、実際にそのチェックに引っかかるいい例があなたの手元にあるということです。<br/>
@@ -61,11 +69,9 @@
         </span>
       <h4 id="test-validation"></h4>
      </div>
-     <div class="form-group">
+     <div class="form-group edit-only">
       <div>
-       <button class="btn btn-primary " type="submit">
-        Submit
-       </button>
+       <button class="btn btn-primary" type="submit">Submit</button>
       </div>
      </div>
     </form>

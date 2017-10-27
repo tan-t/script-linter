@@ -1,11 +1,14 @@
 // vanilla!!!!
 document.getElementById('test-button').onclick = function(e){
-  var sql = document.getElementById('test').value;
+  var sqlText = document.getElementById('test').value;
   var func = document.getElementById('func').value;
   var errorMessage = document.getElementById('errorMessage').value;
   var successMessage = document.getElementById('successMessage').value;
   try {
     var f = evaluate(func);
+    var sql = {
+      sqlText
+    }
     if(f(sql)){
       resetCss(document.getElementById('test-validation'));
       document.getElementById('test-validation').classList.add('text-danger');
